@@ -1,0 +1,30 @@
+{
+  "name": "liste_epicerie_bot",
+  "version": "0.1.0",
+  "description": "Telegram Bot : Liste d'épicerie",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/satyaog/liste_epicerie_bot.git"
+  },
+  "keywords": [
+    "liste",
+    "epicerie",
+    "épicerie",
+    "list",
+    "grocery",
+    "shopping",
+    "telegram",
+    "bot"
+  ],
+  "author": "Satya Ortiz-Gagné",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^2.2.24",
+    "telegraf": "^3.6.6",
+    "telegraf-session-mongo": "^1.1.0"
+  }
+}
