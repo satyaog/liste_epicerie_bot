@@ -1,6 +1,6 @@
 # Liste d'épicerie
 
-Simple grocery / shopping list bot develop for fun using the Telegram Bot API
+Simple grocery / shopping list bot developed for fun using the Telegram Bot API
 
 ## Dependencies
 
