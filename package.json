@@ -26,5 +26,8 @@
     "mongodb": "^2.2.24",
     "telegraf": "^3.6.6",
     "telegraf-session-mongo": "^1.1.0"
+  },
+  "engines": {
+    "node": ">=7.0"
   }
 }
