@@ -122,7 +122,7 @@ function initTelegraf (mongoSession)
   telegraf.startPolling();
 }
 
-if (process.env.useMongo)
+if (process.env.USE_MONGO)
 {
   const { MongoClient } = require('mongodb');
   const MongoSession = require('telegraf-session-mongo');
