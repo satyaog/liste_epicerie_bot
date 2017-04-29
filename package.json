@@ -1,6 +1,6 @@
 {
   "name": "liste_epicerie_bot",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Telegram Bot : Liste d'épicerie",
   "main": "index.js",
   "scripts": {
