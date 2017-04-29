@@ -17,7 +17,7 @@ telegraf.telegram.getMe().then((botInfo) =>
     telegraf.options.username = botInfo.username;
   });
 
-function initTelegraf (mongoSession)
+function initTelegraf(mongoSession)
 {
   if (typeof mongoSession !== "undefined")
   {
@@ -26,7 +26,14 @@ function initTelegraf (mongoSession)
   else
   {
     //fake persistency
-    telegraf.use(Telegraf.memorySession({ sessionName: "sessionPersistent" }));
+    telegraf.use(Telegraf.memorySession(
+      {
+        sessionName: "sessionPersistent"
+        , "getSessionKey": (context) =>
+          {
+            return context.chat && `${context.from.id}:${context.chat.id}`;
+          }
+      }));
   }
 
   telegraf.use(Telegraf.memorySession());
@@ -136,7 +143,7 @@ if (process.env.USE_MONGO)
             , collection: "sessionsPersistent"
             , "getSessionKey": (context) =>
               {
-                return context.from && context.chat && `${context.from.id}:${context.chat.id}`;
+                return context.chat && `${context.from.id}:${context.chat.id}`;
               }
           });
 

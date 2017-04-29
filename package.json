@@ -1,11 +1,11 @@
 {
   "name": "liste_epicerie_bot",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Telegram Bot : Liste d'épicerie",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",
