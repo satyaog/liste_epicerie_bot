@@ -31,7 +31,7 @@ function initTelegraf(mongoSession)
         sessionName: "sessionPersistent"
         , "getSessionKey": (context) =>
           {
-            return context.chat && `${context.from.id}:${context.chat.id}`;
+            return context.chat && `${context.chat.id}`;
           }
       }));
   }
@@ -143,7 +143,7 @@ if (process.env.USE_MONGO)
             , collection: "sessionsPersistent"
             , "getSessionKey": (context) =>
               {
-                return context.chat && `${context.from.id}:${context.chat.id}`;
+                return context.chat && `${context.chat.id}`;
               }
           });
 
