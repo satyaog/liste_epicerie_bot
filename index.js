@@ -17,6 +17,18 @@ telegraf.telegram.getMe().then((botInfo) =>
     telegraf.options.username = botInfo.username;
   });
 
+function getSessionKey(context)
+{
+  if (context.chat)
+  {
+    return context.chat.id;
+  }
+  else
+  {
+    throw "cannot get session key from context";
+  }
+};
+
 function initTelegraf(mongoSession)
 {
   if (typeof mongoSession !== "undefined")
@@ -26,17 +38,10 @@ function initTelegraf(mongoSession)
   else
   {
     //fake persistency
-    telegraf.use(Telegraf.memorySession(
-      {
-        sessionName: "sessionPersistent"
-        , "getSessionKey": (context) =>
-          {
-            return context.chat && `${context.chat.id}`;
-          }
-      }));
+    telegraf.use(Telegraf.memorySession({ "sessionName": "sessionPersistent", "getSessionKey": getSessionKey }));
   }
 
-  telegraf.use(Telegraf.memorySession());
+  telegraf.use(Telegraf.memorySession({ "getSessionKey": getSessionKey }));
 
   telegraf.use((context, next) =>
     {
@@ -139,12 +144,9 @@ if (process.env.USE_MONGO)
       const mongoSession = new MongoSession(
         client
         , {
-            property: "sessionPersistent"
-            , collection: "sessionsPersistent"
-            , "getSessionKey": (context) =>
-              {
-                return context.chat && `${context.chat.id}`;
-              }
+            "property": "sessionPersistent"
+            , "collection": "sessionsPersistent"
+            , "getSessionKey": getSessionKey
           });
 
       mongoSession.setup().then(() =>
