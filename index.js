@@ -113,6 +113,8 @@ function initTelegraf(mongoSession)
     });
 
   telegraf.action(/^\s*\/add_callback/, ListeEpicerieBridge.actions.add);
+  telegraf.action(/^\s*\/addRemove_callback/, ListeEpicerieBridge.actions.addRemove);
+  telegraf.action(/^\s*\/addRemoveCategories_callback/, ListeEpicerieBridge.actions.addRemoveCategories);
   telegraf.action(/^\s*\/addCategories_callback/, ListeEpicerieBridge.actions.addCategories);
   telegraf.action(/^\s*\/categorize_callback/, ListeEpicerieBridge.actions.categorize);
   telegraf.action(/^\s*\/categorizeConfirm_callback/, ListeEpicerieBridge.actions.categorizeConfirm);
