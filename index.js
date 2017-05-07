@@ -37,7 +37,7 @@ function initTelegraf(mongoSession)
   }
   else
   {
-    //fake persistency
+    console.warn("Faking persistency");
     telegraf.use(Telegraf.memorySession({ "sessionName": "sessionPersistent", "getSessionKey": getSessionKey }));
   }
 
@@ -146,7 +146,8 @@ if (process.env.USE_MONGO)
       const mongoSession = new MongoSession(
         client
         , {
-            "property": "sessionPersistent"
+            "ttl": "infinite"
+            , "property": "sessionPersistent"
             , "collection": "sessionsPersistent"
             , "getSessionKey": getSessionKey
           });
