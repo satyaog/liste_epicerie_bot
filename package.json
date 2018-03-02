@@ -1,11 +1,12 @@
 {
   "name": "liste_epicerie_bot",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Telegram Bot : Liste d'épicerie",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "switch_to_dev": "export $(cat .env | xargs) && wget --spider https://api.telegram.org/bot$TOKEN/setWebhook?url= --delete-after && node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -24,8 +25,10 @@
   "author": "Satya Ortiz-Gagné",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.13.4",
     "mongodb": "^2.2.24",
-    "telegraf": "^3.6.6",
+    "telegraf": "3.10",
     "telegraf-session-mongo": "^1.1.0"
   },
   "engines": {
