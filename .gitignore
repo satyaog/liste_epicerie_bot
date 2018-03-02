@@ -1,4 +1,6 @@
 
 node_modules/*
 !node_modules/*.js
-token.js
+# Heroku environment configuration
+.env
+env.cmd
