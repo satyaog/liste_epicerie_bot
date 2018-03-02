@@ -1,6 +1,6 @@
 
 node_modules/*
-!node_modules/*.js
+!node_modules/local_app
 # Heroku environment configuration
 .env
 env.cmd

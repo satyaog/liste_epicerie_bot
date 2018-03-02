@@ -2,10 +2,10 @@
 
 const Telegraf = require('telegraf');
 
-const Utils = require("utils");
+const Utils = require("local_app/utils");
 
-const ListeEpicerieBot = require("listeEpicerieBot");
-const ListeEpicerieBridge = require("listeEpicerieBridge");
+const ListeEpicerieBot = require("local_app/listeEpicerieBot");
+const ListeEpicerieBridge = require("local_app/listeEpicerieBridge");
 
 const telegraf = new Telegraf(process.env.BOT_TOKEN, {telegram: {agent: null, webhookReply: true}});
 
